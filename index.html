@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/Users/brayanbaez/Desktop/Coding/Web Development/Encrypting Message/app.css">
 </head>
 <body>
     <h1>Welcome to Message Encrytption</h1>
+    <main>
     <form >
         <h2> Message Encrytption</h2>
         <label for="key">Enter a key(Make sure to save it and share with a friend)</label>
-        <input type="text" name="key" id="key"><br>
+        <input type="text" name="key" id="key" placeholder="Up to 40"><br>
     
        <label for="message">Enter a message to Encrypt</label>
-       <input type="text" name="message" id="message"><br>
+       <textarea name="message" id="message" cols="30" rows="10"placeholder="Currently supports all alpahabet leters and period symbol"></textarea><br>
        <button type = "button" onclick ="formdata()">Encrypt</button>
-       <p id="demo"></p>
+
     </form>
 <br>
 <br>
@@ -28,11 +30,15 @@
       <input type="text" name="keyD" id="keyD"><br>
   
      <label for="messageD">Enter a message to Decrypt</label>
-     <input type="text" name="messageD" id="messageD"><br>
+     <textarea name="messageD" id="messageD" cols="30" rows="10" placeholder="Currently supports all alpahabet leters and period symbol"></textarea><br><br>
      <button type = "button" onclick ="formdata2()">Decrypt</button>
+     
   </form>
+</main>
+
     
 
   <script src="script.js"></script>
 </body>
 </html>
+
