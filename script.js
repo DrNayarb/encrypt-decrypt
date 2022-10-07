@@ -1,4 +1,3 @@
-
 let key ="";
 let message ="";
 let encrptedMessage ="";
@@ -7,8 +6,9 @@ function formdata(){
     key = document.getElementById("key").value;
     message = document.getElementById("message").value;
     let keyI = parseInt(key);
+    message = message.toUpperCase();
     encrptedMessage = encryptMessage(message,keyI);
-
+    
 
     document.body.innerHTML ="";
     const node = document.createElement("h1");
@@ -36,6 +36,11 @@ for(let i = 0 ; i < 26; i++){
     currCode++;
     character = String.fromCharCode(currCode);
 }
+character = String.fromCharCode(32);
+map.set(character,26);
+reverseMap.set(26,character);
+map.set('.',27);
+reverseMap.set(27,'.');
 
 let newMessage = "";
 let arr = [];
@@ -44,7 +49,7 @@ for(let i = 0 ; i < messageV.length; i++){
     arr.push(map.get(messageV.charAt(i)));
 }
 
-const newMessageChars = arr.map(x => (x + keyV)%26);
+const newMessageChars = arr.map(x => (x + keyV)%28);
 
 for(let i = 0 ; i < newMessageChars.length;i++){
     newMessage+= reverseMap.get(newMessageChars[i]);
@@ -65,6 +70,11 @@ function decryptMessage(messageV,keyV){
         currCode++;
         character = String.fromCharCode(currCode);
     }
+    character = String.fromCharCode(32);
+map.set(character,26);
+reverseMap.set(26,character);
+map.set('.',27);
+reverseMap.set(27,'.');
     
     let newMessage = "";
     let arr = [];
@@ -73,7 +83,7 @@ function decryptMessage(messageV,keyV){
         arr.push(map.get(messageV.charAt(i)));
     }
     
-    const newMessageChars = arr.map(x => ((x - keyV)+26)%26);
+    const newMessageChars = arr.map(x => ((x - keyV)+28)%28);
     
     for(let i = 0 ; i < newMessageChars.length;i++){
         newMessage+= reverseMap.get(newMessageChars[i]);
@@ -85,7 +95,9 @@ function formdata2(){
     key = document.getElementById("keyD").value;
     message = document.getElementById("messageD").value;
     let keyI = parseInt(key);
+    message = message.toUpperCase();
     decryptedMessage = decryptMessage(message,keyI);
+
 
 
     document.body.innerHTML ="";
@@ -100,4 +112,6 @@ function formdata2(){
     // document.body.appendChild()
 
 }
+
+
 
